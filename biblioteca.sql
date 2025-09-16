@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 12-Set-2025 às 23:36
+-- Generation Time: 16-Set-2025 às 14:00
 -- Versão do servidor: 5.7.11
 -- PHP Version: 7.0.3
 
@@ -43,7 +43,8 @@ CREATE TABLE `cliente` (
 INSERT INTO `cliente` (`idCliente`, `nome`, `endereco`, `cidade`, `estado`, `telefone`, `status`) VALUES
 (2, 'hiago', 'teste', 'teste', 'teste', 47984750013, 's'),
 (3, 'hiago', 'hiago', 'hiago', 'hiago', 544665546, 's'),
-(4, 'Gabrieli', 'Rua teste', 'Penha', 'Santa Catarina', 654654645, 's');
+(4, 'Gabrieli', 'Rua teste', 'Penha', 'Santa Catarina', 654654645, 's'),
+(5, 'Robson', 'Rua ROBSON', 'Robson', 'Robson', 416541655, 's');
 
 -- --------------------------------------------------------
 
@@ -107,17 +108,19 @@ CREATE TABLE `retirada` (
   `idCliente` int(11) NOT NULL,
   `nomeCliente` varchar(45) NOT NULL,
   `idLivro` int(11) NOT NULL,
-  `nomeLivro` varchar(45) NOT NULL
+  `nomeLivro` varchar(45) NOT NULL,
+  `dataRetirada` date NOT NULL,
+  `idRetirada` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `retirada`
 --
 
-INSERT INTO `retirada` (`idCliente`, `nomeCliente`, `idLivro`, `nomeLivro`) VALUES
-(2, 'hiago', 1, 'livroTeste'),
-(4, 'Gabrieli', 1, 'livroTeste'),
-(4, 'Gabrieli', 2, 'livroTeste2');
+INSERT INTO `retirada` (`idCliente`, `nomeCliente`, `idLivro`, `nomeLivro`, `dataRetirada`, `idRetirada`) VALUES
+(4, 'Gabrieli', 1, 'livroTeste', '0000-00-00', 2),
+(2, 'hiago', 2, 'livroTeste2', '2021-09-11', 7),
+(2, 'hiago', 1, 'livroTeste', '2021-09-11', 8);
 
 --
 -- Indexes for dumped tables
@@ -143,6 +146,12 @@ ALTER TABLE `livro`
   ADD KEY `fk_idFuncionario` (`idFuncionario`);
 
 --
+-- Indexes for table `retirada`
+--
+ALTER TABLE `retirada`
+  ADD PRIMARY KEY (`idRetirada`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -150,7 +159,7 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `funcionario`
 --
@@ -161,6 +170,11 @@ ALTER TABLE `funcionario`
 --
 ALTER TABLE `livro`
   MODIFY `idLivro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `retirada`
+--
+ALTER TABLE `retirada`
+  MODIFY `idRetirada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Constraints for dumped tables
 --

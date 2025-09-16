@@ -35,6 +35,7 @@
 		<form method="post" action="clientes.php">
 			<label>Sistema de Clientes - Digite seu nome: </label>
 			<input type="text" name="nomeCliente" size="20">
+			
 			<input type="submit" value="BUSCAR">
 		</form>
 		<?php

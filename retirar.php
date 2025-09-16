@@ -17,7 +17,9 @@
         <input type="hidden" value="'.$nomeLivro.'" name="nomeLivro" size="20"><br>
         
         <label>>Nome do cliente: </label>
-        <input type="text" name="nomeCliente" size="20"><br>
+        <input type="text" name="nomeCliente" size="20"><br><br>
+        <label>>Data de Retirada: (Ano/Mês/Dia)</label>
+        <input type="text" name="dataRetirada" size="20"><br><br>
         <input type="submit" value="RETIRAR">';
 
     echo '</form>'
